@@ -21,11 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '@f0+$0*@((*u6ztufnen=w0!qgcck8u$7$=0bn3v*9d=i9e!#*'
-
+'e4a56c4f58d8754f452d64ae6ff5e60aa0ebd9b6cffc4e4c0d94b1eeb302cba8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["mycloneappcorey.herokuapp.com"]
+ALLOWED_HOSTS = ["myycloneapp.herokuapp.com"]
 
 
 # Application definition
