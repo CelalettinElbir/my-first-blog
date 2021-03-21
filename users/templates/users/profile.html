@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container">
+
+
+  <div class="card">
+    <img class="card-img-top" src="{{ user.profile.image.url }}" style="width: min-content; height:min-content">
+    <div class="card-body">
+      <h4 class="card-title">{{ user.username }}</h4>
+      <p class="card-text">{{ user.email }}</p>
+    </div>
+  </div>
+
+
+
+
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Update profile </legend>
+      {{p_update|crispy}}
+      {{u_update|crispy}}
+
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-outline-info btn-block" type="submit">updates</button>
+    </div>
+
+  </form>
+
+
+
+
+  {% endblock content %}

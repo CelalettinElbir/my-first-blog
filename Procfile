@@ -1,0 +1,1 @@
+web: gunicorn corey_blog.wsgi
