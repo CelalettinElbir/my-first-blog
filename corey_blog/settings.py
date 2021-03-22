@@ -9,9 +9,11 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import django_heroku
 from pathlib import Path
 import os
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,8 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@f0+$0*@((*u6ztufnen=w0!qgcck8u$7$=0bn3v*9d=i9e!#*'
-'e4a56c4f58d8754f452d64ae6ff5e60aa0ebd9b6cffc4e4c0d94b1eeb302cba8'
+# SECRET_KEY = '@f0+$0*@((*u6ztufnen=w0!qgcck8u$7$=0bn3v*9d=i9e!#*'
+SECRET_KEY = os.environ.get("SECRET")
+
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -138,3 +143,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('email')
 EMAIL_HOST_PASSWORD = os.environ.get('password')
+
+django_heroku.settings(locals())
