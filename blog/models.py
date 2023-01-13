@@ -16,3 +16,16 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('post-detail',kwargs={'pk':self.pk})    
+
+
+#All post can have more than one category and All categories have more that one post
+class category(models.Model):
+    name = models.CharField(max_length=45)
+    posts = models.ManyToManyField(Post)
+
+    def __str__(self) -> str:
+        return self.name
+    
+    
+
+
