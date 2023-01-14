@@ -12,7 +12,6 @@
         {% endif %}
 
     </title>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -26,11 +25,8 @@
 
     <header>
 
-
-
-
-        <nav class="navbar navbar-expand-sm navbar-light   "style="background-color: #e3f2fd;>
-            <a class="navbar-brand ml-2" href="{% url  'blog-about'%}">Blog</a>
+        <nav class="navbar navbar-expand-sm navbar-light   " style="background-color: #e3f2fd;">
+            <a class=" navbar-brand ml-2" href="{% url  'blog-about'%}">Blog</a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                 data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                 aria-label="Toggle navigation"></button>
@@ -39,24 +35,19 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{% url  'blog-home'%}">Home <span class="sr-only">(current)</span></a>
                     </li>
-
                 </ul>
-
                 <ul class="ml-auto navbar-nav">
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'post-create' %}">Create Post</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'profile' %}">profile</a>
                     </li>
-                    
-                    
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">login</a>
@@ -64,26 +55,16 @@
                     <li class="nav-item ">
                         <a class="nav-link" href="{% url 'register' %}">sing in </a>
                     </li>
-    
-    
                     {% endif %}
-    
-
-
-
 
                 </ul>
-               
-
 
             </div>
         </nav>
         </div>
     </header>
 
-
     <main class="container">
-
         <div class="row ">
             <div class="col-md-8">
                 {% if messages %}
@@ -95,29 +76,15 @@
                         </button>
                         <strong>{{massage}}</strong>
                     </div>
-
-
                 </div>
 
-
                 {% endfor %}
-
-
                 {% endif %}
-
-
-
-
                 {% block content %} {% endblock %}
-                
-
 
             </div>
 
-
-
             <div class="col-md-4 mt-5">
-
                 <div class="list-group">
                     <a href="#" class="list-group-item list-group-item-action ">latest post </a>
                     <a href="#" class="list-group-item list-group-item-action">Announcment </a>
@@ -125,16 +92,25 @@
                     <a href="#" class="list-group-item list-group-item-action "> etc</a>
 
                 </div>
+                {% if categories %}
+
+                <div class="categories mt-3">
+                    <h6 class="text-muted">Select Category</h6>
+                    <hr>
+                    {% for category in categories %}
+                    <a class="btn btn-info" href="{% url  'category-posts' category.slug %}">{{category}}</a>
+                    {% endfor %}
+
+
+                </div>
+                {% endif %}
+
+
             </div>
 
         </div>
 
     </main>
-
-
-
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

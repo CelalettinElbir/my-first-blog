@@ -3,23 +3,16 @@
 
 
 
-{% for post in posts %}
+{% for category in categories %}
 
 <div class="card text-left mt-5">
   <div class="card-body">
 
-    <a href="{% url 'user-posts' post.author.username %} ">{{post.author}}</a>
+    <a href="{">{{category.name}}</a>
 
-    <h4 class="card-title"> <a href="{% url 'post-detail' post.id %} "> {{post.title}} </a> </h4>
-    <p class="card-text">{{post.content}}</p>
-  </div>
-  <div class="card-footer d-flex justify-content-between">{{post.date_posted|date:'F d,Y'}} by {{post.author}} <div
-      class="">
-      {% for category in post.category_set.all %} <a href="{% url 'category-posts' category.slug   %}"
-        class="btn border-circle btn-info ">{{category}}</a> {% endfor %}
-    </div>
-  </div>
 
+
+  </div>
 
 </div>
 {% endfor %}
@@ -48,14 +41,6 @@
     {% endif %}
 
     {% endif %}
-
-
-
-
-
-
-
-
 
 </div>
 
