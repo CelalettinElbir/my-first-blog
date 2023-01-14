@@ -30,7 +30,6 @@ class Category(models.Model):
         ('Fashion', 'Fashion'),
 
     ]
-
     name = models.CharField(choices=categories, default="Food", max_length=10)
     slug = models.SlugField()
     posts = models.ManyToManyField(Post)
